@@ -28,7 +28,7 @@ public class CameraStabilizer : MonoBehaviour {
 
     void Update() {
         // Step 1: Extract the yaw (Z-axis rotation) from base_link
-        Quaternion baseLinkYawOnly = Quaternion.Euler(0, transform.parent.eulerAngles.y-90, 0);
+        Quaternion baseLinkYawOnly = Quaternion.Euler(0, transform.parent.eulerAngles.y, 0);
         
         // Step 2: Set the camera to look down along the Y-axis in world space, but keep the yaw
         Quaternion lookDownRotation = baseLinkYawOnly * Quaternion.Euler(180, 0, 0); // 90 degrees to look down
