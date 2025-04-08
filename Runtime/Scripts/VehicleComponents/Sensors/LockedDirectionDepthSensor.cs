@@ -42,13 +42,14 @@ namespace VehicleComponents.Sensors
             if (Physics.Raycast(rayOrigin, rayDirection, out hit, maxRaycastDistance))
             {
                 depth = -(hit.point.y - transform.position.y);
+                Debug.Log("raycast y: " + depth);
             }
             else
             {
                 // If no hit, fall back to water level calculation
                 if(_waterModel == null) return false;
                 float waterSurfaceLevel = _waterModel.GetWaterLevelAt(transform.position);
-                // Debug.Log("y: " + transform.position.y);
+                Debug.Log("y: " + transform.position.y);
                 depth = -(waterSurfaceLevel - transform.position.y);
             }
             //Add gaussian noise
